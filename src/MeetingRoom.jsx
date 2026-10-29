@@ -266,8 +266,8 @@ export default function MeetingRoom({
     let active = true;
 
     const socket = io(
-      `http://${window.location.hostname}:3001`
-    );
+  "https://cloudsync-backend-3bxq.onrender.com"
+);
 
     socketRef.current = socket;
 
@@ -539,10 +539,10 @@ export default function MeetingRoom({
     async function loadAttendance() {
       try {
         const response = await fetch(
-          `http://${window.location.hostname}:3001/api/attendance?roomId=${encodeURIComponent(
-            roomId
-          )}`
-        );
+  `https://cloudsync-backend-3bxq.onrender.com/api/attendance?roomId=${encodeURIComponent(
+    roomId
+  )}`
+);
 
         if (!response.ok) {
           throw new Error("Attendance request failed");

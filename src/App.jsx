@@ -158,9 +158,9 @@ const [authError, setAuthError] = useState("");
       try {
         setAttendanceLoading(true);
 
-        const response = await fetch(
-          `http://${window.location.hostname}:3001/api/attendance`
-        );
+       const response = await fetch(
+  `https://cloudsync-backend-3bxq.onrender.com/api/attendance`
+);
 
         if (!response.ok) {
           throw new Error("Could not load attendance.");
@@ -210,7 +210,7 @@ async function handleAuth(event) {
       authMode === "signup" ? "signup" : "login";
 
     const response = await fetch(
-      `http://${window.location.hostname}:3001/api/auth/${endpoint}`,
+      `https://cloudsync-backend-3bxq.onrender.com/api/auth/${endpoint}`,
       {
         method: "POST",
         headers: {
@@ -290,7 +290,7 @@ async function handleAuth(event) {
 
     try {
       const response = await fetch(
-        `http://${window.location.hostname}:3001/api/meetings`,
+        `https://cloudsync-backend-3bxq.onrender.com/api/meetings`,
         {
           method: "POST",
           headers: {
@@ -834,7 +834,7 @@ if (!authUser) {
                     setAttendanceLoading(true);
 
                     fetch(
-                      `http://${window.location.hostname}:3001/api/attendance`
+                      `https://cloudsync-backend-3bxq.onrender.com/api/attendance`
                     )
                       .then((response) => {
                         if (!response.ok) {
@@ -1104,6 +1104,7 @@ if (!authUser) {
 
         if (!notes) {
           alert("Please enter your meeting notes first.");
+          
           return;
         }
 
@@ -1112,7 +1113,7 @@ if (!authUser) {
         button.textContent = "Generating...";
 
         try {
-        const response = await fetch(`http://${window.location.hostname}:3001/api/ai/summarize`, {
+        const response = await fetch(`https://cloudsync-backend-3bxq.onrender.com/api/ai/summarize`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ notes }),
